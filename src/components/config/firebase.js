@@ -1,6 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { getFirestore } from "firebase/firestore"
+import { collection, addDoc, doc, setDoc } from "firebase/firestore";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -17,40 +20,48 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth()
+const db = getFirestore()
 
-function register(email, password) {
-    //Asynchoronous functions
-    createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            alert('Successfully Registered')
-            // Signed in 
-            const user = userCredential.user;
-            // ...
-        }).catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            alert(errorMessage)
-            // ..
-        });
-}
-
-function login(email, password) {
-    signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-            alert('Successfully Logged In')
-            console.log('user --->', user)
-            // ...
+async function register(email, password, name) {
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password)
+        const uid = userCredential.user.uid
+        await setDoc(doc(db, "users", uid), {
+            first: name,
+            email: email
         })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            alert(errorMessage)
-        })
-}
+        alert('Successfully Registered and added in database')
+    } catch (e) {
+        alert(e.message)
+    }
+    }
+    async function seell(title, categoory, description, price) {
+        try {
+            // const userCredential = createUserWithEmailAndPassword(auth, title, categoory, description, price)
+            await addDoc(collection(db, "adUser"), {
+                title: title,
+                category: categoory,
+                description: description,
+                price: price
+            })
+            alert('Successfully Added')
+        } catch (e) {
+            alert(e.message)
+        }
+    }
 
-export {
-    register,
-    login
-}
+    async function login(email, password) {
+        try {
+            const user = await signInWithEmailAndPassword(auth, email, password)
+            alert('Successfully LoggedIn')
+            return user
+        } catch (e) {
+            alert(e.message)
+        }
+    }
+
+    export {
+        register,
+        login,
+        seell
+    }

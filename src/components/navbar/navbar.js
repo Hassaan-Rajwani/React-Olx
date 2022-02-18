@@ -2,11 +2,12 @@ import React from 'react';
 import logo from '../../images/OLX_New_Logo.png'
 import Backimage from '../backimg/backimage';
 import Posts from '../posts/post';
+import img from '../../images/OLX_New_Logo.png'
 
 export default function navbar(props) {
     return (
         <div>
-            <nav style={{ boxShadow: '0px 0px 5px lightgrey', position: 'sticky', top: '0px', zIndex: '1000' }} className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav style={{ boxShadow: '0px 0px 5px lightgrey', position: 'fixed', top: '0px', zIndex: '1000', width: '100%' }} className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
                     <img style={{ width: '70px' }} src={logo} alt="" />
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,11 +36,11 @@ export default function navbar(props) {
                     </div>
                 </div>
             </nav>
-            <ul className='ul'>
+            <ul style={{marginTop: '85px'}} className='ul'>
                 <button type="button" className="cate btn btn2 " data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <li className="li-chg">ALL CATEGORIES</li>
                 </button>
-                <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
@@ -76,12 +77,13 @@ export default function navbar(props) {
             <Backimage />
             
             {/* scroll bar */}
-            <div>
-                <div className='parent'>
+            {/* <div> */}
+                {/* <div className='parent'>
                     <h2>More on Mobile Phones</h2>
-                    <div className='scroll'>
-                        <Posts
-                            img={'https://media.wired.com/photos/6149204955f7b3aea723343d/master/pass/Gear-Review-Apple_iPhone-13-Pro_Colors_09142021.jpg'}
+                    <div className='scroll'> */}
+                        {/* <Posts
+                            // img={'https://media.wired.com/photos/6149204955f7b3aea723343d/master/pass/Gear-Review-Apple_iPhone-13-Pro_Colors_09142021.jpg'}
+                            img={props.obj}
                             title={'Apple iPhone 143 Pro'}
                             price={'$1,000'}
                             address={'New York'}
@@ -121,18 +123,18 @@ export default function navbar(props) {
                             price={'$1,000'}
                             address={'New York'}
                             onClick={props.adDetail}
-                        />
-                    </div>
+                        /> */}
+                    {/* </div>
                 </div>
-            </div>
+            </div> */}
 
             {/* recommendations */}
-            <div className='parent'>
+            {/* <div className='parent'>
                 <h2>Fresh recommendations</h2>
                 <div className='fresh'>
                     <div className='container'>
-                        <div class="row">
-                            <div class="col">
+                        <div className="row">
+                            <div className="col">
                                 <Posts
                                     img={'https://firebasestorage.googleapis.com/v0/b/olx-sijeesh.appspot.com/o/image%2Fimages%20(1).jpeg?alt=media&token=62659e18-a342-4b99-8482-d6e6184fcac9'}
                                     title={'Apple iPhone 11'}
@@ -141,7 +143,7 @@ export default function navbar(props) {
                                     onClick={props.adDetail}
                                 />
                             </div>
-                            <div class="col">
+                            <div className="col">
                                 <Posts
                                     img={'https://firebasestorage.googleapis.com/v0/b/olx-sijeesh.appspot.com/o/image%2F2020-ktm-250-duke-left-side-eac4.png?alt=media&token=e3b3a938-c57b-4255-95b1-80d54dcf5a93'}
                                     title={'Kawasaki Hayabosa'}
@@ -150,7 +152,7 @@ export default function navbar(props) {
                                     onClick={props.adDetail}
                                 />
                             </div>
-                            <div class="col">
+                            <div className="col">
                                 <Posts
                                     img={'https://firebasestorage.googleapis.com/v0/b/olx-sijeesh.appspot.com/o/image%2Fsuzuki%20mehran.jpg?alt=media&token=6b490fe6-7313-42ae-b4b9-61b5cbdd58ed'}
                                     title={'Suzuki Mehran'}
@@ -159,7 +161,7 @@ export default function navbar(props) {
                                     onClick={props.adDetail}
                                 />
                             </div>
-                            <div class="col">
+                            <div className="col">
                                 <Posts
                                     img={'https://firebasestorage.googleapis.com/v0/b/olx-sijeesh.appspot.com/o/image%2Fimages%20(5).jpeg?alt=media&token=40e772b9-ddb4-4729-be60-65aeafc1684b'}
                                     title={'Cannon 50mm'}
@@ -171,7 +173,7 @@ export default function navbar(props) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }
