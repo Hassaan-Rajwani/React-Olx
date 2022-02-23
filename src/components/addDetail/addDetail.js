@@ -1,12 +1,17 @@
 import React from 'react';
 import logo from '../../images/OLX_New_Logo.png'
 import back from '../../images/back.png'
+import { useNavigate } from 'react-router-dom';
 
-export default function addDetail(props) {
+export default function AddDetail(props) {
+    const navigate = useNavigate()
+    const backBtn2 = () => {
+        navigate('/dashboard')
+    }
     return (
         <div>
             <div className='2Nav' style={{ boxShadow: '0px 0px 5px lightgrey', backgroundColor: '#F8F9FA', padding: '10px', position: 'sticky', top: '0px' }}>
-                <img style={{ width: '30px' }} src={back} alt="" onClick={props.backBtn2} />
+                <img style={{ width: '30px' }} src={back} alt="" onClick={backBtn2} />
                 <img style={{ width: '70px', marginLeft: '10px' }} src={logo} alt="" />
             </div>
             <br />
@@ -15,13 +20,13 @@ export default function addDetail(props) {
                 <div id="carouselExampleControlsNoTouching" class="carousel slide caro" data-bs-touch="false" data-bs-interval="false">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src={props.backImg.photos} class="d-block w-100" alt="..." />
+                            <img src={logo} class="d-block w-100" alt="..." />
                         </div>
                         <div class="carousel-item">
-                            <img src={props.backImg.photos} class="d-block w-100" alt="..." />
+                            <img src={logo} class="d-block w-100" alt="..." />
                         </div>
                         <div class="carousel-item">
-                            <img src={props.backImg.photos} class="d-block w-100" alt="..." />
+                            <img src={logo} class="d-block w-100" alt="..." />
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
@@ -36,8 +41,8 @@ export default function addDetail(props) {
 
                 <div className='price2' style={{ border: 'solid 2px lightgrey', borderRadius: '5px', height: '150px' }}>
                     <div className='malomaat' style={{ padding: '10px' }}>
-                        <h1 style={{ fontWeight: 'bolder' }}> {props.backImg.price} </h1>
-                        <h5 style={{ marginTop: '-13px' }}>{props.backImg.title}</h5>
+                        <h1 style={{ fontWeight: 'bolder' }}>50,000</h1>
+                        <h5 style={{ marginTop: '-13px' }}>Iphone X</h5>
                         <h5 style={{ marginTop: '-8px' }}>Mobile Phone</h5>
                         <p>Mon Feb 10 2022</p>
                     </div>

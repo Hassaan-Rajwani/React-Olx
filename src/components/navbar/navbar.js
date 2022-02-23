@@ -3,8 +3,74 @@ import logo from '../../images/OLX_New_Logo.png'
 import Backimage from '../backimg/backimage';
 import Posts from '../posts/post';
 import img from '../../images/OLX_New_Logo.png'
+import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { getAds } from '../config/firebase';
 
-export default function navbar(props) {
+export default function Navbar(props) {
+    const [ad, setAd] = useState(false)
+    const [index, setindex] = useState()
+    const [ads, setAds] = useState([])
+
+    const navigate = useNavigate()
+    useEffect(async () => {
+        const tempAds = await getAds()
+        setAds(tempAds)
+    })
+
+    const arrayObj = [
+        {
+            thumnail: 'https://cdn.vox-cdn.com/thumbor/QytuXmIKkJXnSXTY-NZ5_rhnczM=/0x0:2040x1360/1200x0/filters:focal(0x0:2040x1360):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/9599227/jbareham_171101_2099_A_0088_02.jpg',
+            photos: 'https://cdn.vox-cdn.com/thumbor/QytuXmIKkJXnSXTY-NZ5_rhnczM=/0x0:2040x1360/1200x0/filters:focal(0x0:2040x1360):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/9599227/jbareham_171101_2099_A_0088_02.jpg',
+            price: '90,000',
+            title: 'Iphone X',
+            description: "Iphone X Pta Approve 10/10 condition 512GB with Face Id ",
+            location: 'Karachi'
+        },
+        {
+            thumnail: 'https://cdn.vox-cdn.com/thumbor/QytuXmIKkJXnSXTY-NZ5_rhnczM=/0x0:2040x1360/1200x0/filters:focal(0x0:2040x1360):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/9599227/jbareham_171101_2099_A_0088_02.jpg',
+            photos: 'https://cdn.vox-cdn.com/thumbor/QytuXmIKkJXnSXTY-NZ5_rhnczM=/0x0:2040x1360/1200x0/filters:focal(0x0:2040x1360):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/9599227/jbareham_171101_2099_A_0088_02.jpg',
+            price: '90,000',
+            title: 'Iphone X',
+            description: "Iphone X Pta Approve 10/10 condition 512GB with Face Id ",
+            location: 'Karachi'
+        },
+        {
+            thumnail: 'https://cdn.vox-cdn.com/thumbor/QytuXmIKkJXnSXTY-NZ5_rhnczM=/0x0:2040x1360/1200x0/filters:focal(0x0:2040x1360):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/9599227/jbareham_171101_2099_A_0088_02.jpg',
+            photos: 'https://cdn.vox-cdn.com/thumbor/QytuXmIKkJXnSXTY-NZ5_rhnczM=/0x0:2040x1360/1200x0/filters:focal(0x0:2040x1360):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/9599227/jbareham_171101_2099_A_0088_02.jpg',
+            price: '90,000',
+            title: 'Iphone X',
+            description: "Iphone X Pta Approve 10/10 condition 512GB with Face Id ",
+            location: 'Karachi'
+        },
+        {
+            thumnail: 'https://cdn.vox-cdn.com/thumbor/QytuXmIKkJXnSXTY-NZ5_rhnczM=/0x0:2040x1360/1200x0/filters:focal(0x0:2040x1360):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/9599227/jbareham_171101_2099_A_0088_02.jpg',
+            photos: 'https://cdn.vox-cdn.com/thumbor/QytuXmIKkJXnSXTY-NZ5_rhnczM=/0x0:2040x1360/1200x0/filters:focal(0x0:2040x1360):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/9599227/jbareham_171101_2099_A_0088_02.jpg',
+            price: '90,000',
+            title: 'Iphone X',
+            description: "Iphone X Pta Approve 10/10 condition 512GB with Face Id ",
+            location: 'Karachi'
+        },
+        {
+            thumnail: 'https://cdn.vox-cdn.com/thumbor/QytuXmIKkJXnSXTY-NZ5_rhnczM=/0x0:2040x1360/1200x0/filters:focal(0x0:2040x1360):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/9599227/jbareham_171101_2099_A_0088_02.jpg',
+            photos: 'https://cdn.vox-cdn.com/thumbor/QytuXmIKkJXnSXTY-NZ5_rhnczM=/0x0:2040x1360/1200x0/filters:focal(0x0:2040x1360):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/9599227/jbareham_171101_2099_A_0088_02.jpg',
+            price: '90,000',
+            title: 'Iphone X',
+            description: "Iphone X Pta Approve 10/10 condition 512GB with Face Id ",
+            location: 'Karachi'
+        },
+        {
+            thumnail: 'https://cdn.vox-cdn.com/thumbor/QytuXmIKkJXnSXTY-NZ5_rhnczM=/0x0:2040x1360/1200x0/filters:focal(0x0:2040x1360):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/9599227/jbareham_171101_2099_A_0088_02.jpg',
+            photos: 'https://cdn.vox-cdn.com/thumbor/QytuXmIKkJXnSXTY-NZ5_rhnczM=/0x0:2040x1360/1200x0/filters:focal(0x0:2040x1360):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/9599227/jbareham_171101_2099_A_0088_02.jpg',
+            price: '90,000',
+            title: 'Iphone X',
+            description: "Iphone X Pta Approve 10/10 condition 512GB with Face Id ",
+            location: 'Karachi'
+        }
+    ]
+    const sellOpt = () => {
+        navigate('/sellpage')
+    }
     return (
         <div>
             <nav style={{ boxShadow: '0px 0px 5px lightgrey', position: 'fixed', top: '0px', zIndex: '1000', width: '100%' }} className="navbar navbar-expand-lg navbar-light bg-light">
@@ -30,13 +96,13 @@ export default function navbar(props) {
                                 <button className='btnn'></button>
                             </li>
                             <li className="po nav-item">
-                                <a style={{cursor: 'pointer', backgroundColor: 'white'}} onClick={props.sell} className="nav-link sell">SELL</a>
+                                <a style={{ cursor: 'pointer', backgroundColor: 'white' }} onClick={sellOpt} className="nav-link sell">SELL</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-            <ul style={{marginTop: '85px'}} className='ul'>
+            <ul style={{ marginTop: '85px' }} className='ul'>
                 <button type="button" className="cate btn btn2 " data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <li className="li-chg">ALL CATEGORIES</li>
                 </button>
@@ -73,15 +139,57 @@ export default function navbar(props) {
             </ul>
             {/* Asal kaam yahaan tak he he  */}
             {/* ye navbar ko sticky krme k lie kia he  */}
-            
+
             <Backimage />
-            
+
             {/* scroll bar */}
+            <div className='SCROLL'>
+                <div className='parent'>
+                    <h2>More on Mobile Phones</h2>
+                    <div className='scroll'>
+                        {arrayObj.map((item, indexx) => {
+                            return (
+                                <Posts
+                                    img={item.thumnail}
+                                    title={item.title}
+                                    price={item.price}
+                                    address={item.location}
+                                    // onClick={() => { setAd(true) }}
+                                    // postind={() => { setindex(indexx) }}
+                                />
+                            )
+                        })}
+                    </div>
+                </div>
+            </div>
             {/* <div> */}
-                {/* <div className='parent'>
+            <div className='parent'>
+                <h2>Fresh recommendations</h2>
+                <div className='fresh'>
+                    <div className='container'>
+                        <div className="row">
+                            <div className="col">
+                                {ads.map((item, indexx) => {
+                                    return (
+                                        <Posts
+                                            img={item.thumnail}
+                                            title={item.title}
+                                            price={item.price}
+                                            address={item.location}
+                                            // onClick={() => { setAd(true) }}
+                                            // postind={() => { setindex(indexx) }}
+                                        />
+                                    )
+                                })}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* <div className='parent'>
                     <h2>More on Mobile Phones</h2>
                     <div className='scroll'> */}
-                        {/* <Posts
+            {/* <Posts
                             // img={'https://media.wired.com/photos/6149204955f7b3aea723343d/master/pass/Gear-Review-Apple_iPhone-13-Pro_Colors_09142021.jpg'}
                             img={props.obj}
                             title={'Apple iPhone 143 Pro'}
@@ -124,7 +232,7 @@ export default function navbar(props) {
                             address={'New York'}
                             onClick={props.adDetail}
                         /> */}
-                    {/* </div>
+            {/* </div>
                 </div>
             </div> */}
 

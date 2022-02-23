@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore } from "firebase/firestore"
-import { collection, addDoc, doc, setDoc } from "firebase/firestore";
+import { collection, addDoc, doc, setDoc, getDocs } from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -34,34 +34,44 @@ async function register(email, password, name) {
     } catch (e) {
         alert(e.message)
     }
+}
+async function seell(title, categoory, description, price) {
+    try {
+        // const userCredential = createUserWithEmailAndPassword(auth, title, categoory, description, price)
+        await addDoc(collection(db, "adUser"), {
+            title: title,
+            category: categoory,
+            description: description,
+            price: price
+        })
+        alert('Successfully Added')
+    } catch (e) {
+        alert(e.message)
     }
-    async function seell(title, categoory, description, price) {
-        try {
-            // const userCredential = createUserWithEmailAndPassword(auth, title, categoory, description, price)
-            await addDoc(collection(db, "adUser"), {
-                title: title,
-                category: categoory,
-                description: description,
-                price: price
-            })
-            alert('Successfully Added')
-        } catch (e) {
-            alert(e.message)
-        }
-    }
+}
 
-    async function login(email, password) {
-        try {
-            const user = await signInWithEmailAndPassword(auth, email, password)
-            alert('Successfully LoggedIn')
-            return user
-        } catch (e) {
-            alert(e.message)
-        }
+async function login(email, password) {
+    try {
+        const user = await signInWithEmailAndPassword(auth, email, password)
+        alert('Successfully LoggedIn')
+        return user
+    } catch (e) {
+        alert(e.message)
     }
+}
 
-    export {
-        register,
-        login,
-        seell
-    }
+async function getAds() {
+    const querySnapshot = await getDocs(collection(db, "adUser"))
+    const ads = []
+    querySnapshot.forEach((doc) => {
+        ads.push({ ...doc.data(), id: doc.id })
+    })
+    return ads
+}
+
+export {
+    register,
+    login,
+    seell,
+    getAds
+}

@@ -1,8 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export default function post(props) {
+export default function Post(props) {
+    const navigate = useNavigate()
+    const showPost = () => {
+        navigate('/addetail')
+    }
     return (
-        <div onClick={props.onClick} style={{ display: 'inline-block' }}>
+        <div onClick={showPost} style={{ display: 'inline-block' }}>
             <div className='one'>
                 <div style={{ marginTop: '50px' }} className="card" onClick={props.postind}>
                     <img style={{ height: '200px' }} src={props.img} className="card-img-top" alt="..." />
