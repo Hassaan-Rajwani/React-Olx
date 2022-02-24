@@ -19,7 +19,7 @@ function router() {
                     <Route path="/" element={<Login />} />
                     <Route path="/dashboard" element={<Navbar />} />
                     <Route path="/sellpage" element={<Sell />} />
-                    <Route path="/addetail" element={<AddDetail />} />
+                    <Route path="/adDetail/:adId" element={<AddDetail />} />
                 </Routes>
             </BrowserRouter  >
         </div>

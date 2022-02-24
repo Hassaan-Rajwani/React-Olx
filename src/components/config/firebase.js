@@ -9,12 +9,12 @@ import { collection, addDoc, doc, setDoc, getDocs } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBS4NBDyHzHw-ShtISkLsAvH72gkwCp3ik",
-    authDomain: "olx-react-app-5e61c.firebaseapp.com",
-    projectId: "olx-react-app-5e61c",
-    storageBucket: "olx-react-app-5e61c.appspot.com",
-    messagingSenderId: "910100153225",
-    appId: "1:910100153225:web:7fa3d592f2f9c1853ad758"
+    apiKey: "AIzaSyC3QmOfSV2jcDSkE7jcifaZNcsKfKJYWrY",
+    authDomain: "my-olx-1c80f.firebaseapp.com",
+    projectId: "my-olx-1c80f",
+    storageBucket: "my-olx-1c80f.appspot.com",
+    messagingSenderId: "730052367556",
+    appId: "1:730052367556:web:79bf92ebe0f74e67f26591"
 };
 
 // Initialize Firebase

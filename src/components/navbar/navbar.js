@@ -3,6 +3,7 @@ import logo from '../../images/OLX_New_Logo.png'
 import Backimage from '../backimg/backimage';
 import Posts from '../posts/post';
 import img from '../../images/OLX_New_Logo.png'
+import AddDetail from '../addDetail/addDetail';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getAds } from '../config/firebase';
@@ -16,7 +17,7 @@ export default function Navbar(props) {
     useEffect(async () => {
         const tempAds = await getAds()
         setAds(tempAds)
-    })
+    }, [])
 
     const arrayObj = [
         {
@@ -28,19 +29,19 @@ export default function Navbar(props) {
             location: 'Karachi'
         },
         {
-            thumnail: 'https://cdn.vox-cdn.com/thumbor/QytuXmIKkJXnSXTY-NZ5_rhnczM=/0x0:2040x1360/1200x0/filters:focal(0x0:2040x1360):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/9599227/jbareham_171101_2099_A_0088_02.jpg',
-            photos: 'https://cdn.vox-cdn.com/thumbor/QytuXmIKkJXnSXTY-NZ5_rhnczM=/0x0:2040x1360/1200x0/filters:focal(0x0:2040x1360):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/9599227/jbareham_171101_2099_A_0088_02.jpg',
-            price: '90,000',
-            title: 'Iphone X',
-            description: "Iphone X Pta Approve 10/10 condition 512GB with Face Id ",
+            thumnail: 'http://incpak.com/wp-content/uploads/2019/10/72481874_541995879945592_3986073729108017152_n.jpg',
+            photos: 'http://incpak.com/wp-content/uploads/2019/10/72481874_541995879945592_3986073729108017152_n.jpg',
+            price: '190,000',
+            title: 'Honda 125',
+            description: "10/10 condition 125cc",
             location: 'Karachi'
         },
         {
-            thumnail: 'https://cdn.vox-cdn.com/thumbor/QytuXmIKkJXnSXTY-NZ5_rhnczM=/0x0:2040x1360/1200x0/filters:focal(0x0:2040x1360):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/9599227/jbareham_171101_2099_A_0088_02.jpg',
-            photos: 'https://cdn.vox-cdn.com/thumbor/QytuXmIKkJXnSXTY-NZ5_rhnczM=/0x0:2040x1360/1200x0/filters:focal(0x0:2040x1360):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/9599227/jbareham_171101_2099_A_0088_02.jpg',
-            price: '90,000',
-            title: 'Iphone X',
-            description: "Iphone X Pta Approve 10/10 condition 512GB with Face Id ",
+            thumnail: 'https://i.ytimg.com/vi/MnrHyu9UcXU/maxresdefault.jpg',
+            photos: 'https://i.ytimg.com/vi/MnrHyu9UcXU/maxresdefault.jpg',
+            price: '790,000',
+            title: 'Mehran Car',
+            description: "10/10 condition",
             location: 'Karachi'
         },
         {
@@ -176,11 +177,12 @@ export default function Navbar(props) {
                                             title={item.title}
                                             price={item.price}
                                             address={item.location}
+                                            onClick={() => navigate(`/adDetail/${item.id}`)}
                                             // onClick={() => { setAd(true) }}
                                             // postind={() => { setindex(indexx) }}
                                         />
-                                    )
-                                })}
+                                        )
+                                    })}
                             </div>
                         </div>
                     </div>

@@ -17,25 +17,25 @@ export default function AddDetail(props) {
             <br />
             <h2 style={{ textAlign: 'center' }}>Product Detail</h2>
             <div className='detail' style={{ display: 'flex', justifyContent: 'space-around' }}>
-                <div id="carouselExampleControlsNoTouching" class="carousel slide caro" data-bs-touch="false" data-bs-interval="false">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src={logo} class="d-block w-100" alt="..." />
+                <div id="carouselExampleControlsNoTouching" className="carousel slide caro" data-bs-touch="false" data-bs-interval="false">
+                    <div className="carousel-inner">
+                        <div className="carousel-item active">
+                            <img src={logo} className="d-block w-100" alt="..." />
                         </div>
-                        <div class="carousel-item">
-                            <img src={logo} class="d-block w-100" alt="..." />
+                        <div className="carousel-item">
+                            <img src={logo} className="d-block w-100" alt="..." />
                         </div>
-                        <div class="carousel-item">
-                            <img src={logo} class="d-block w-100" alt="..." />
+                        <div className="carousel-item">
+                            <img src={logo} className="d-block w-100" alt="..." />
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
+                    <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
+                    <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Next</span>
                     </button>
                 </div>
 
