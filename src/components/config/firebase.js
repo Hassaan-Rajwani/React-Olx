@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore } from "firebase/firestore"
-import { collection, addDoc, doc, setDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc, doc, setDoc, getDocs, getDoc } from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -69,9 +69,17 @@ async function getAds() {
     return ads
 }
 
+async function getAdDetails(temp) {
+    const docRef = doc(db, "adUser", temp);
+    const docSnap = await getDoc(docRef);
+    const data = docSnap.data()
+    return data
+}
+
 export {
     register,
     login,
     seell,
-    getAds
+    getAds,
+    getAdDetails
 }

@@ -1,12 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../../images/OLX_New_Logo.png'
 import back from '../../images/back.png'
 import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { getAdDetails } from '../config/firebase';
 
 export default function AddDetail(props) {
+    const [posts, setPosts] = useState([])
+    const params = useParams()
+    console.log('params --->', params.adId)
+    useEffect(async () => {
+        const data = await getAdDetails(params.adId)
+        setPosts(data)
+        console.log('data --->', data)
+    },[])
+    
+
     const navigate = useNavigate()
     const backBtn2 = () => {
         navigate('/dashboard')
+    }
+    if(posts.length === 0){
+        return(<div><h1 style={{textAlign: 'center'}}>Loading....</h1></div>)
     }
     return (
         <div>
@@ -41,14 +57,14 @@ export default function AddDetail(props) {
 
                 <div className='price2' style={{ border: 'solid 2px lightgrey', borderRadius: '5px', height: '150px' }}>
                     <div className='malomaat' style={{ padding: '10px' }}>
-                        <h1 style={{ fontWeight: 'bolder' }}>50,000</h1>
-                        <h5 style={{ marginTop: '-13px' }}>Iphone X</h5>
-                        <h5 style={{ marginTop: '-8px' }}>Mobile Phone</h5>
+                        <h1 style={{ fontWeight: 'bolder' }}>{posts.price}</h1>
+                        <h5 style={{ marginTop: '-13px' }}>{posts.title}</h5>
+                        <h5 style={{ marginTop: '-8px' }}>{posts.category}</h5>
                         <p>Mon Feb 10 2022</p>
                     </div>
                     <div className='des' style={{ padding: '10px', border: 'solid 2px lightgrey', borderRadius: '5px' }}>
                         <h2 style={{ fontWeight: 'bolder' }}>Description</h2>
-                        <p>Liquid Retina HD display · 15.5 cm / 6.1‑inch (diagonal) all-screen LCD Multi-Touch display with IPS technology ·</p>
+                        <p>{posts.description}</p>
                     </div>
                 </div>
             </div>

@@ -24,7 +24,7 @@ export default function Signup(props) {
         navigate('/login')
     }
     return (
-        <div style={{ width: '80%', margin: 'auto' }}>
+        <div className='App' style={{ width: '80%', margin: 'auto' }}>
             <h1>SignUp Page</h1>
             <br />
             <img style={{ width: 150 }} src={image ? image1 : image2} alt="" />
@@ -42,10 +42,13 @@ export default function Signup(props) {
                 <label style={{ fontSize: '20px', fontWeight: 'bold' }} for="exampleInputPassword1" className="form-label">Password</label>
                 <input style={{ border: 'solid 3px lightgrey', fontWeight: 'bold', fontSize: '20px' }} onFocus={() => { setImage(false) }} onChange={(e) => { setPassword(e.target.value) }} type="password" className="form-control" id="exampleInputPassword1" placeholder='Write Password Here !' />
             </div>
-            <button onClick={onSign} type="submit" className="btn btn-primary">Submit</button>
+            <button onClick={onSign} type="submit" className="btn btn-success">Submit</button>
             <br />
             <br />
             <button onClick={onReady} type="submit" className="btn btn-primary">Already Have Account</button>
+        <br />
+        <br />
+        <br />
         </div>
     )
 }
