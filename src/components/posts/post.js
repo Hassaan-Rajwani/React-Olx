@@ -2,10 +2,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Post(props) {
-    // const navigate = useNavigate()
-    // const showPost = () => {
-    //     navigate('/addetail')
-    // }
     return (
         <div onClick={props.onClick} style={{ display: 'inline-block' }}>
             <div className='one'>

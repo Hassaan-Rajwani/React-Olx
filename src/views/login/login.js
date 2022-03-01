@@ -13,6 +13,7 @@ export default function Login(props) {
     const onLogin = async () => {
         try {
             await login(email, password)
+            alert('Successfully Logged In')
             navigate('/dashboard')
         }
         catch (error) {
@@ -27,7 +28,6 @@ export default function Login(props) {
             <h1>Login Page</h1>
             <br />
             <img style={{ width: 150 }} src={image ? image1 : image2} alt="" />
-            {/* <form> */}
             <div className="mb-3">
                 <label style={{ fontSize: '20px', fontWeight: 'bold' }} for="exampleInputEmail1" className="form-label">Email address</label>
                 <input style={{ border: 'solid 3px lightgrey', fontWeight: 'bold', fontSize: '20px' }} onFocus={() => {setImage(true)}} onChange={(e) => { setEmail(e.target.value) }} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='Write Email Here !' />
@@ -41,7 +41,6 @@ export default function Login(props) {
             <br />
             <br />
             <button onClick={onSign} type="submit" className="btn btn-primary">Don't Have Account</button>
-            {/* </form> */}
         </div>
     )
 }

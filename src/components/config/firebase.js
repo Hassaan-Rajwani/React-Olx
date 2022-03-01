@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore } from "firebase/firestore"
 import { collection, addDoc, doc, setDoc, getDocs, getDoc } from "firebase/firestore";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -21,6 +22,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth()
 const db = getFirestore()
+const storage = getStorage();
 
 async function register(email, password, name) {
     try {
@@ -35,14 +37,22 @@ async function register(email, password, name) {
         alert(e.message)
     }
 }
-async function seell(title, categoory, description, price) {
+async function seell(title, categoory, description, price, files) {
+    let urls = []
+    for (let i = 0; i < files.length; i++) {
+        const storageRef = ref(storage, `/UserImage/${files[i].name}`);
+        const response = await uploadBytes(storageRef, files[i]);
+        const url = await getDownloadURL(response.ref);
+        urls.push(url)
+        console.log(urls)
+    }
     try {
-        // const userCredential = createUserWithEmailAndPassword(auth, title, categoory, description, price)
         await addDoc(collection(db, "adUser"), {
             title: title,
             category: categoory,
             description: description,
-            price: price
+            price: price,
+            image: urls
         })
         alert('Successfully Added')
     } catch (e) {
@@ -51,13 +61,7 @@ async function seell(title, categoory, description, price) {
 }
 
 async function login(email, password) {
-    try {
-        const user = await signInWithEmailAndPassword(auth, email, password)
-        alert('Successfully LoggedIn')
-        return user
-    } catch (e) {
-        alert(e.message)
-    }
+    return await signInWithEmailAndPassword(auth, email, password)
 }
 
 async function getAds() {
@@ -76,10 +80,23 @@ async function getAdDetails(temp) {
     return data
 }
 
+// async function uploadimageInStorage(files) {
+//     let urls = []
+//     for (let i = 0; i < files.length; i++) {
+//         const storageRef = ref(storage, `/UserImage/${files[i].name}`);
+//         const response = await uploadBytes(storageRef, files[i]);
+//         const url = await getDownloadURL(response.ref);
+//         urls.push(url)
+//         console.log(urls)
+//     }
+//     return urls
+// }
+
 export {
     register,
     login,
     seell,
     getAds,
-    getAdDetails
+    getAdDetails,
+    // uploadimageInStorage
 }

@@ -36,13 +36,13 @@ export default function AddDetail(props) {
                 <div id="carouselExampleControlsNoTouching" className="carousel slide caro" data-bs-touch="false" data-bs-interval="false">
                     <div className="carousel-inner">
                         <div className="carousel-item active">
-                            <img src={logo} className="d-block w-100" alt="..." />
+                            <img src={posts.image} className="d-block w-100" alt="..." />
                         </div>
                         <div className="carousel-item">
-                            <img src={logo} className="d-block w-100" alt="..." />
+                            <img src={posts.image[1]} className="d-block w-100" alt="..." />
                         </div>
                         <div className="carousel-item">
-                            <img src={logo} className="d-block w-100" alt="..." />
+                            <img src={posts.image} className="d-block w-100" alt="..." />
                         </div>
                     </div>
                     <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
@@ -62,7 +62,7 @@ export default function AddDetail(props) {
                         <h5 style={{ marginTop: '-8px' }}>{posts.category}</h5>
                         <p>Mon Feb 10 2022</p>
                     </div>
-                    <div className='des' style={{ padding: '10px', border: 'solid 2px lightgrey', borderRadius: '5px' }}>
+                    <div className='des' style={{marginTop: '25px', padding: '10px', border: 'solid 2px lightgrey', borderRadius: '5px' }}>
                         <h2 style={{ fontWeight: 'bolder' }}>Description</h2>
                         <p>{posts.description}</p>
                     </div>

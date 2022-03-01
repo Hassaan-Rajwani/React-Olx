@@ -173,7 +173,7 @@ export default function Navbar(props) {
                                 {ads.map((item, indexx) => {
                                     return (
                                         <Posts
-                                            img={item.thumnail}
+                                            img={item.image[0]}
                                             title={item.title}
                                             price={item.price}
                                             address={item.location}
