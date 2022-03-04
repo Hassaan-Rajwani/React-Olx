@@ -175,6 +175,70 @@ select{
 /* =============== */
 /* MEDIA QUERY */
 /* =============== */
+@media screen and (min-width: 250px) and (max-width: 350px){
+  .btn2{
+    display: none;
+  }
+  select{
+    margin-top: 10px;
+    position: relative;
+    right: 15px;
+  }
+  .form-control{
+    margin-top: 10px;
+    max-width: 260px;
+  }
+  .btnn{
+    margin-top: 10px;
+  }
+  .po{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+  }
+  .li-chg{
+    display: none;
+  }
+  .ot{
+    display: none;
+  }
+  .detail{
+    display: flex;
+    flex-direction: column;
+  }
+  .caro{
+    width: 98%;
+    margin: auto;
+  }
+  .price2{
+    width: 95%;
+    margin: auto;
+    margin-top: 10px;
+    max-height: 130px;
+  }
+  .touchBar{
+    max-width: 50px;
+    margin-left: -10px;
+  }
+  .sell{
+    margin-left: 0px;
+  }
+  .dropdown{
+    position: relative;
+    top: 60px;
+  }
+  .naaaav1{
+    position: relative;
+    top: 60px;
+  }
+  .naaaav2{
+    position: relative;
+    bottom: 110px;
+    right: 30px;
+  }
+}
+
 @media screen and (min-width: 360px) and (max-width: 420px){
   .btn2{
     display: none;
@@ -261,7 +325,7 @@ select{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 25px;
   }
   .caro{
     width: 98%;
@@ -272,6 +336,26 @@ select{
     margin: auto;
     margin-top: 10px;
     max-height: 130px;
+  }
+  .touchBar{
+    max-width: 50px;
+    margin-left: -10px;
+  }
+  .sell{
+    margin-left: 0px;
+  }
+  .dropdown{
+    position: relative;
+    top: 60px;
+  }
+  .naaaav1{
+    position: relative;
+    top: 60px;
+  }
+  .naaaav2{
+    position: relative;
+    bottom: 110px;
+    right: 30px;
   }
 }
 @media screen and (min-width: 551px) and (max-width: 700px){
@@ -294,7 +378,7 @@ select{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 25px;
   }
   .caro{
     width: 98%;
@@ -305,6 +389,26 @@ select{
     margin: auto;
     margin-top: 10px;
     max-height: 130px;
+  }
+  .touchBar{
+    max-width: 50px;
+    margin-left: -10px;
+  }
+  .sell{
+    margin-left: 0px;
+  }
+  .dropdown{
+    position: relative;
+    top: 60px;
+  }
+  .naaaav1{
+    position: relative;
+    top: 60px;
+  }
+  .naaaav2{
+    position: relative;
+    bottom: 110px;
+    right: 30px;
   }
 }
 @media screen and (min-width: 701px) and (max-width: 900px){
@@ -324,7 +428,7 @@ select{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 25px;
   }
   .li{
     font-size: 14px;
@@ -341,6 +445,26 @@ select{
     margin: auto;
     margin-top: 10px;
     max-height: 130px;
+  }
+  .touchBar{
+    max-width: 50px;
+    margin-left: -10px;
+  }
+  .sell{
+    margin-left: 0px;
+  }
+  .dropdown{
+    position: relative;
+    top: 60px;
+  }
+  .naaaav1{
+    position: relative;
+    top: 60px;
+  }
+  .naaaav2{
+    position: relative;
+    bottom: 110px;
+    right: 30px;
   }
 }
 @media screen and (min-width: 901px) and (max-width: 1200px){
@@ -360,6 +484,26 @@ select{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 25px;
+  }
+  .touchBar{
+    max-width: 50px;
+    margin-left: -10px;
+  }
+  .sell{
+    margin-left: 0px;
+  }
+  .dropdown{
+    position: relative;
+    top: 60px;
+  }
+  .naaaav1{
+    position: relative;
+    top: 60px;
+  }
+  .naaaav2{
+    position: relative;
+    bottom: 110px;
+    right: 30px;
   }
 }
