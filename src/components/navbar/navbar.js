@@ -1,16 +1,14 @@
 import React from 'react';
 import logo from '../../images/OLX_New_Logo.png'
+import avatar from '../../images/iconProfilePicture.7975761176487dc62e25536d9a36a61d.png'
 import Backimage from '../backimg/backimage';
 import Posts from '../posts/post';
-import img from '../../images/OLX_New_Logo.png'
-import AddDetail from '../addDetail/addDetail';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getAds } from '../config/firebase';
+import Footer from '../footer/footer';
 
 export default function Navbar(props) {
-    const [ad, setAd] = useState(false)
-    const [index, setindex] = useState()
     const [ads, setAds] = useState([])
 
     const navigate = useNavigate()
@@ -72,6 +70,18 @@ export default function Navbar(props) {
     const sellOpt = () => {
         navigate('/sellpage')
     }
+    const onProfile = () => {
+        navigate('/profile')
+    }
+    if (ads.length === 0) {
+        return (
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+                <div style={{ width: '100px', height: '100px' }} className="spinner-border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        )
+    }
     return (
         <div>
             <nav style={{ boxShadow: '0px 0px 5px lightgrey', position: 'fixed', top: '0px', zIndex: '1000', width: '100%' }} className="navbar navbar-expand-lg navbar-light bg-light">
@@ -92,9 +102,12 @@ export default function Navbar(props) {
                                     <option value="">Larkana</option>
                                 </select>
                             </li>
-                            <li style={{ display: 'flex' }} className="nav-item">
-                                <input style={{ fontWeight: 'bold', width: '800px' }} className="form-control me-2 formm" type="search" placeholder="Find Cars, Mobile Phones and more..." aria-label="Search" />
+                            <li style={{ display: 'flex' }} className="nav-item naaaav1">
+                                <input style={{ fontWeight: 'bold', width: '700px' }} className="form-control me-2 formm" type="search" placeholder="Find Cars, Mobile Phones and more..." aria-label="Search" />
                                 <button className='btnn'></button>
+                            </li>
+                            <li onClick={onProfile} className='nav-item naaaav2'>
+                                <img style={{ width: '50px', marginLeft: '40px', cursor: 'pointer' }} src={avatar} alt="" />
                             </li>
                             <li className="po nav-item">
                                 <a style={{ cursor: 'pointer', backgroundColor: 'white' }} onClick={sellOpt} className="nav-link sell">SELL</a>
@@ -138,13 +151,11 @@ export default function Navbar(props) {
                 <li className='li ot'>Tablets</li>
                 <li className='li ot'>Land &amp; Plots</li>
             </ul>
-            {/* Asal kaam yahaan tak he he  */}
-            {/* ye navbar ko sticky krme k lie kia he  */}
 
             <Backimage />
 
             {/* scroll bar */}
-            <div className='SCROLL'>
+            {/* <div className='SCROLL'>
                 <div className='parent'>
                     <h2>More on Mobile Phones</h2>
                     <div className='scroll'>
@@ -162,7 +173,7 @@ export default function Navbar(props) {
                         })}
                     </div>
                 </div>
-            </div>
+            </div> */}
             {/* <div> */}
             <div className='parent'>
                 <h2>Fresh recommendations</h2>
@@ -170,7 +181,7 @@ export default function Navbar(props) {
                     <div className='container'>
                         <div className="row">
                             <div className="col">
-                                {ads.map((item, indexx) => {
+                                {ads.map((item) => {
                                     return (
                                         <Posts
                                             img={item.image[0]}
@@ -178,16 +189,15 @@ export default function Navbar(props) {
                                             price={item.price}
                                             address={item.location}
                                             onClick={() => navigate(`/adDetail/${item.id}`)}
-                                            // onClick={() => { setAd(true) }}
-                                            // postind={() => { setindex(indexx) }}
                                         />
-                                        )
-                                    })}
+                                    )
+                                })}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <Footer />
             {/* <div className='parent'>
                     <h2>More on Mobile Phones</h2>
                     <div className='scroll'> */}
@@ -291,7 +301,7 @@ export default function Navbar(props) {
 
 
 
-// AGR OPER WALA KAAM NA CHALE TW YE WALA CODE USE KRNA HE 
+// AGR OPER WALA KAAM NA CHALE TW YE WALA CODE USE KRNA HE
 // =======================================================
 // import React from 'react';
 // import logo from '../../images/OLX_New_Logo.png'

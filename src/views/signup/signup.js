@@ -14,14 +14,13 @@ export default function Signup(props) {
     const onSign = async () => {
         try {
             await register(email, password, name)
-            navigate('/login')
         }
         catch (error) {
             alert(error)
         }
     }
     const onReady = () => {
-        navigate('/login')
+        navigate('/')
     }
     return (
         <div className='App' style={{ width: '80%', margin: 'auto' }}>

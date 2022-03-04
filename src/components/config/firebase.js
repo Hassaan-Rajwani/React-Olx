@@ -37,7 +37,7 @@ async function register(email, password, name) {
         alert(e.message)
     }
 }
-async function seell(title, categoory, description, price, files) {
+async function seell(title, categoory, description, price, files, location) {
     let urls = []
     for (let i = 0; i < files.length; i++) {
         const storageRef = ref(storage, `/UserImage/${files[i].name}`);
@@ -52,7 +52,8 @@ async function seell(title, categoory, description, price, files) {
             category: categoory,
             description: description,
             price: price,
-            image: urls
+            image: urls,
+            location: location
         })
         alert('Successfully Added')
     } catch (e) {
@@ -80,17 +81,6 @@ async function getAdDetails(temp) {
     return data
 }
 
-// async function uploadimageInStorage(files) {
-//     let urls = []
-//     for (let i = 0; i < files.length; i++) {
-//         const storageRef = ref(storage, `/UserImage/${files[i].name}`);
-//         const response = await uploadBytes(storageRef, files[i]);
-//         const url = await getDownloadURL(response.ref);
-//         urls.push(url)
-//         console.log(urls)
-//     }
-//     return urls
-// }
 
 export {
     register,
@@ -98,5 +88,4 @@ export {
     seell,
     getAds,
     getAdDetails,
-    // uploadimageInStorage
 }

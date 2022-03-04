@@ -5,7 +5,7 @@ export default function Post(props) {
     return (
         <div onClick={props.onClick} style={{ display: 'inline-block' }}>
             <div className='one'>
-                <div style={{ marginTop: '50px' }} className="card" onClick={props.postind}>
+                <div style={{ marginTop: '50px'}} className="card" onClick={props.postind}>
                     <img style={{ height: '200px' }} src={props.img} className="card-img-top" alt="..." />
                     <div className="card-body">
                         <div style={{ display: 'flex', justifyContent: 'space-between', height: '25px' }}>

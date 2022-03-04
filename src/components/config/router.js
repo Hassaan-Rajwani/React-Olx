@@ -1,4 +1,3 @@
-// import { render } from "react-dom";
 import {
     BrowserRouter,
     Routes,
@@ -9,6 +8,7 @@ import Signup from "../../views/signup/signup";
 import Login from "../../views/login/login";
 import Sell from "../sell/sell";
 import AddDetail from "../addDetail/addDetail";
+import Profile from "../profile/profile";
 
 function router() {
     return (
@@ -20,6 +20,7 @@ function router() {
                     <Route path="/dashboard" element={<Navbar />} />
                     <Route path="/sellpage" element={<Sell />} />
                     <Route path="/adDetail/:adId" element={<AddDetail />} />
+                    <Route path="/profile" element={<Profile />} />
                 </Routes>
             </BrowserRouter  >
         </div>

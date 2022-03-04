@@ -166,6 +166,11 @@ select{
 .price2{
   width: 30%;
 }
+.mainFooter{
+  margin-top: 1rem!important;
+  margin-bottom: 0rem!important;
+  max-width: 100%;
+}
 
 /* =============== */
 /* MEDIA QUERY */
@@ -190,7 +195,7 @@ select{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 25px;
   }
   .li-chg{
     display: none;
@@ -211,6 +216,26 @@ select{
     margin: auto;
     margin-top: 10px;
     max-height: 130px;
+  }
+  .touchBar{
+    max-width: 50px;
+    margin-left: -10px;
+  }
+  .sell{
+    margin-left: 0px;
+  }
+  .dropdown{
+    position: relative;
+    top: 60px;
+  }
+  .naaaav1{
+    position: relative;
+    top: 60px;
+  }
+  .naaaav2{
+    position: relative;
+    bottom: 110px;
+    right: 30px;
   }
 }
 @media screen and (min-width: 421px) and (max-width: 550px){
