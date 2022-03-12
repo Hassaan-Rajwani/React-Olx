@@ -74,8 +74,8 @@ async function getAds() {
     return ads
 }
 
-async function getAdDetails(temp) {
-    const docRef = doc(db, "adUser", temp);
+async function getAdDetails(id) {
+    const docRef = doc(db, "adUser", id);
     const docSnap = await getDoc(docRef);
     const data = docSnap.data()
     return data
@@ -87,5 +87,5 @@ export {
     login,
     seell,
     getAds,
-    getAdDetails,
+    getAdDetails
 }

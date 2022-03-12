@@ -2,6 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import { login } from '../../components/config/firebase';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { add } from '../../store/action/action';
 
 export default function Login(props) {
     const [image, setImage] = useState(true)
@@ -10,10 +12,12 @@ export default function Login(props) {
     const image1 = 'https://cdn-icons-png.flaticon.com/512/3898/3898675.png'
     const image2 = 'https://cdn-icons-png.flaticon.com/512/3898/3898681.png'
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const onLogin = async () => {
         try {
-            await login(email, password)
+            const user = await login(email, password)
             alert('Successfully Logged In')
+            dispatch(add(user))
             navigate('/dashboard')
         }
         catch (error) {

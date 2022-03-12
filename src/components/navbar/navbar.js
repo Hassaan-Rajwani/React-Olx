@@ -7,16 +7,20 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getAds } from '../config/firebase';
 import Footer from '../footer/footer';
+import { useSelector } from 'react-redux';
 
 export default function Navbar(props) {
     const [ads, setAds] = useState([])
-
+    
     const navigate = useNavigate()
     useEffect(async () => {
         const tempAds = await getAds()
         setAds(tempAds)
     }, [])
-
+    
+    const user = useSelector(state => state.user)
+    console.log(user)
+    
     const arrayObj = [
         {
             thumnail: 'https://cdn.vox-cdn.com/thumbor/QytuXmIKkJXnSXTY-NZ5_rhnczM=/0x0:2040x1360/1200x0/filters:focal(0x0:2040x1360):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/9599227/jbareham_171101_2099_A_0088_02.jpg',
@@ -197,6 +201,11 @@ export default function Navbar(props) {
                     </div>
                 </div>
             </div>
+            <br />
+            <br />
+            <h1>{user.user.email}</h1>
+            <br />
+            <br />
             <Footer />
             {/* <div className='parent'>
                     <h2>More on Mobile Phones</h2>
